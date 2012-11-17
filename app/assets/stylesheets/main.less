@@ -1,0 +1,53 @@
+@nothingness: rgba(0,0,0,0);
+
+.navbar{ 
+  
+  .nav > .active > a,
+  .nav > .active > a:hover,
+  .nav > .active > a:focus {
+    background-color: @nothingness; //Disable default bg-colour of bootstrap
+  }
+  
+  .brand {
+    background-color: @nothingness; //Disable default bg-colour of bootstrap
+    background: url(/assets/images/0182logoSmall.png) no-repeat left center;
+    height: 20px;
+    width: 100px;
+    display: block;
+    float: left;
+    padding: 10px 10px 10px;
+    margin-left: -10px;
+    color: #777777;
+    text-shadow: 0 1px 0 #ffffff;
+  }
+
+  .brand:hover {
+    background: url(/assets/images/0182logoSmallSel.png) no-repeat left center;
+  }
+  
+  .button {
+    .brand;
+    width: 175px;
+  }
+
+  .sieraden {
+    .button;
+    background: url(/assets/images/ButtonSieraden.png) no-repeat left center;
+  }
+  .sieraden:hover {
+  }
+
+  .leer {
+    .button;
+    background: url(/assets/images/ButtonLeer.png) no-repeat left center;
+  }
+  .leer:hover {
+  }
+
+  .jochem {
+    .button;
+    background: url(/assets/images/ButtonJochem.png) no-repeat left center;
+  }
+  .jochem:hover {
+  }
+}

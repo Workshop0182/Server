@@ -1,0 +1,15 @@
+.navbar .brand {
+  background: url(/assets/images/0182logoSmall.png) no-repeat left center;
+  height: 20px;
+  width: 100px;
+  display: block;
+  float: left;
+  padding: 10px 10px 10px;
+  margin-left: -10px;
+  color: #777777;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+.navbar .brand:hover {
+  background: url(/assets/images/0182logoSmallSel.png) no-repeat left center;
+}
