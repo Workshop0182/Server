@@ -1,4 +1,5 @@
 import play.*;
+import java.io.File;
 
 public class Global extends GlobalSettings {
 
@@ -9,7 +10,7 @@ public class Global extends GlobalSettings {
     String fs = File.separator;
     File creationsFolder = new File(fs+"public"+fs+"images"+fs+"creations");
     
-    Logger.info("Check: "+ creationsFolder)
+    Logger.info("Check: "+ creationsFolder);
     
   }  
   
