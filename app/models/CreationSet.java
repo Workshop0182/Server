@@ -24,4 +24,10 @@ public class CreationSet extends Model {
     public void addCreations(int priority, Creation creation){
     	creations.add(priority, creation);
     }
+    
+    
+    public String toString(){
+		String retString = id+" | "+name+" | "+desc;
+		return retString;
+	}
 }

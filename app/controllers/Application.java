@@ -24,17 +24,14 @@ public class Application extends Controller {
   }
   
   public static Result sieraden() {
-      //return ok(index.render("utterly useless message",form(Task.class)));
       return ok(sieraden.render("utterly useless message"));
   }
   
   public static Result leer() {
-      //return ok(index.render("utterly useless message",form(Task.class)));
       return ok(leer.render("utterly useless message"));
   }
   
   public static Result jochem() {
-      //return ok(index.render("utterly useless message",form(Task.class)));
       return ok(jochem.render("utterly useless message"));
   }
   
@@ -51,7 +48,7 @@ public class Application extends Controller {
           return redirect(routes.Application.index());
       }else{
     	  Task task = new Task();
-    	  task.contents = "Stop entering empty fields you lazy nigger";
+    	  task.contents = "Stop entering empty fields";
     	  task.save();
     	  return redirect(routes.Application.index());
       }

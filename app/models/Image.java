@@ -16,4 +16,7 @@ public class Image extends Model{
     
     @Constraints.Required
     public String desc;
+    
+    @Constraints.Required
+    public String name;
 }
