@@ -17,10 +17,9 @@ public class Global extends GlobalSettings {
     Logger.info("Application has started :D");
     
     String fs = File.separator;
-    URL res = getClass().getClassLoader().getResource("public/images/creations");
-    File creationsFolder = new File(res.getFile());
+    File creationsFolder = new File("public"+fs+"images"+fs+"creations");
     
-    Logger.info(res.toString());
+    Logger.info("cF  = "+creationsFolder.toString());
     
     for(File file:creationsFolder.listFiles()) {
 		createCreationSet(file);
