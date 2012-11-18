@@ -20,9 +20,7 @@ public class Global extends GlobalSettings {
     URL res = getClass().getClassLoader().getResource("public/images/creations");
     File creationsFolder = new File(res.getFile());
     
-    Logger.info(res);
-    Logger.info(creationsFolder);
-    Logger.info(creationsFolder.listFiles());
+    Logger.info(res.toString());
     
     for(File file:creationsFolder.listFiles()) {
 		createCreationSet(file);
