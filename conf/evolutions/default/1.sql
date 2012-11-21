@@ -19,7 +19,6 @@ create table creation_set (
 
 create table image (
   id                        varchar(255) not null,
-  desc                      varchar(255),
   name                      varchar(255),
   constraint pk_image primary key (id))
 ;

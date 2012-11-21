@@ -11,7 +11,6 @@ public class PropertiesReader {
 	private HashMap<String,String> properties = new HashMap<String,String>();
  
 	public PropertiesReader(String filePath) {
-		System.out.println(filePath);
 		
 		BufferedReader br = null;
 		
@@ -24,10 +23,6 @@ public class PropertiesReader {
 				
 				String propertyName = sCurrentLine.substring(sCurrentLine.indexOf("[")+1,sCurrentLine.lastIndexOf("]"));
 				String propertyValue = sCurrentLine.substring(sCurrentLine.indexOf(":")+2);
-				
-				System.out.println("propertyName = " + propertyName);
-				System.out.println("propertyValue = " + propertyValue);
-				System.out.println();
 				
 				properties.put(propertyName,propertyValue);
 			}
@@ -45,5 +40,8 @@ public class PropertiesReader {
 		}
 	}
 	
+	public String getValue(String propertyName){
+		return (String) properties.get(propertyName);
+	}
 	
 }

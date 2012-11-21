@@ -1,10 +1,12 @@
 import play.*;
+import models.*;
+import controllers.PropertiesReader;
+
 import java.io.File;
 import java.util.Arrays;
 import java.net.URL;
-
-import models.*;
-import controllers.PropertiesReader;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class Global extends GlobalSettings {
 	
@@ -19,7 +21,6 @@ public class Global extends GlobalSettings {
     String fs = File.separator;
     File creationsFolder = new File("public"+fs+"images"+fs+"creations");
     
-    Logger.info("cF  = "+creationsFolder.toString());
     
     for(File file:creationsFolder.listFiles()) {
 		createCreationSet(file);
@@ -39,18 +40,28 @@ public class Global extends GlobalSettings {
 				createCreation(f);
 			}else{
 				PropertiesReader pr = new PropertiesReader(f.getPath());
+				cs.desc = pr.getValue("desc");
+				//TODO: 'Name' value also in properties file or extract file name
 			}
 		}
 	 
 	 cs.id = "" + ++CreationSetCount;
 	 cs.name = file.getName();
-	 cs.desc = file.getPath();
 	 
 	 return cs;
   }
   
   public Creation createCreation(File file){
 	 Creation c = new Creation(); 
+	 
+	 	for(File f:file.listFiles()) {
+			if(f.isDirectory()){
+				createImage(f);
+			}else{
+				PropertiesReader pr = new PropertiesReader(f.getPath());
+				c.desc = pr.getValue("desc");
+			}
+		}
 	 c.id = "" + ++CreationCount;
 	 c.name = file.getName();
 	 c.desc = file.getPath();
@@ -62,7 +73,11 @@ public class Global extends GlobalSettings {
 	 Image i = new Image(); 
 	 i.id = "" + ++ImageCount;
 	 i.name = file.getName();
-	 i.desc = file.getPath();
+	 try {
+		i.img = ImageIO.read(file);
+	 } catch (IOException e) {
+		Logger.info("Image is fucking up: "+i.name);
+ 	 }
 	 
 	 return i;
   }

@@ -12,10 +12,7 @@ public class Image extends Model{
     public String id;
 
     @Constraints.Required
-    public BufferedImage img = null;
-    
-    @Constraints.Required
-    public String desc;
+    public BufferedImage img;
     
     @Constraints.Required
     public String name;
