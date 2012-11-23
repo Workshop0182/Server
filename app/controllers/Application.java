@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.api.templates.Html;
 import play.mvc.*;
 import models.*;
 import play.data.Form;
@@ -13,14 +14,14 @@ import java.util.List;
 import static play.libs.Json.toJson;
 
 public class Application extends Controller {
-	
+
 	
   List<Image> allImages = new ArrayList<Image>();
   
 
   public static Result index() {
       //return ok(index.render("utterly useless message",form(Task.class)));
-      return ok(home.render("utterly useless message"));
+      return ok(home.render("utterly useless message", getImage()));
   }
   
   public static Result sieraden() {
@@ -57,6 +58,15 @@ public class Application extends Controller {
   public static Result getTasks() {
       List<Task> tasks = new Model.Finder(String.class, Task.class).all();
       return ok(toJson(tasks));
+  }
+
+  public static Html getImage(){
+      List<Image> imgs = Image.find.all();
+      Image img = imgs.get(1);
+
+      System.out.println(img);
+
+      return new Html("Image name:"+img.name+"<br/><img src=\""+ img.name +"\">");
   }
   
 }

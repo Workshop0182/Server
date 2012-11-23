@@ -4,21 +4,21 @@
 # --- !Ups
 
 create table creation (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   name                      varchar(255),
   desc                      varchar(255),
   constraint pk_creation primary key (id))
 ;
 
 create table creation_set (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   name                      varchar(255),
   desc                      varchar(255),
   constraint pk_creation_set primary key (id))
 ;
 
 create table image (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   name                      varchar(255),
   constraint pk_image primary key (id))
 ;

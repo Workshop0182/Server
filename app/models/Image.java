@@ -8,12 +8,17 @@ import javax.persistence.Id;
 
 @Entity
 public class Image extends Model{
+
     @Id
-    public String id;
+    public Long id;
 
     @Constraints.Required
     public BufferedImage img;
-    
+
     @Constraints.Required
     public String name;
+
+    public static Finder<Long,Image> find = new Finder<Long,Image>(
+            Long.class, Image.class
+    );
 }

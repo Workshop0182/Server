@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class CreationSet extends Model {
     @Id
-    public String id;
+    public Long id;
 
     @Constraints.Required
     public String name;
@@ -30,4 +30,14 @@ public class CreationSet extends Model {
 		String retString = id+" | "+name+" | "+desc;
 		return retString;
 	}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public static Finder find = new Finder(Long.class, CreationSet.class);
 }

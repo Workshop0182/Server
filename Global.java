@@ -2,7 +2,11 @@ import play.*;
 import models.*;
 import controllers.PropertiesReader;
 
+//import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
+import java.lang.Long;
+import java.lang.System;
 import java.util.Arrays;
 import java.net.URL;
 import java.io.IOException;
@@ -45,8 +49,9 @@ public class Global extends GlobalSettings {
 			}
 		}
 	 
-	 cs.id = "" + ++CreationSetCount;
+	 cs.id = new Long(++CreationSetCount);
 	 cs.name = file.getName();
+     cs.save();
 	 
 	 return cs;
   }
@@ -62,22 +67,26 @@ public class Global extends GlobalSettings {
 				c.desc = pr.getValue("desc");
 			}
 		}
-	 c.id = "" + ++CreationCount;
+	 c.id = new Long(++CreationCount);
 	 c.name = file.getName();
 	 c.desc = file.getPath();
+     c.save();
 	 
 	 return c;
   }
   
   public Image createImage(File file){
 	 Image i = new Image(); 
-	 i.id = "" + ++ImageCount;
-	 i.name = file.getName();
+	 i.id = new Long(++ImageCount);
+	 i.name =file.getName();
 	 try {
 		i.img = ImageIO.read(file);
+         Logger.info("Le image: "+i.name);
 	 } catch (IOException e) {
 		Logger.info("Image is fucking up: "+i.name);
  	 }
+      System.out.println("[Shiiiit niggas] Image buildan");
+     i.save();
 	 
 	 return i;
   }

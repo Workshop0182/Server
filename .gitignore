@@ -4,7 +4,6 @@ db/
 dist/
 logs/
 test-result/
-lib/
 tmp/
 modules/
 project/project/
@@ -13,3 +12,7 @@ target/
 .settings/
 .target/
 .project
+.idea/
+Procfile~
+system.properties~
+.gitignore~
