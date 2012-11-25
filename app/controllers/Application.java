@@ -21,24 +21,19 @@ public class Application extends Controller {
 
   public static Result index() {
       //return ok(index.render("utterly useless message",form(Task.class)));
-      return ok(home.render("utterly useless message", getImage()));
+      return ok(home.render("Workshop0182 | Home", getImage()));
   }
   
   public static Result sieraden() {
-      return ok(sieraden.render("utterly useless message"));
+      return ok(sieraden.render("Workshop0182 | Sieraden", getImage()));
   }
   
   public static Result leer() {
-      return ok(leer.render("utterly useless message"));
+      return ok(leer.render("Workshop0182 | Leer", getImage()));
   }
   
   public static Result jochem() {
-      return ok(jochem.render("utterly useless message"));
-  }
-  
-  public static void addImage(BufferedImage _img) {
-      Image img = new Image();
-      
+      return ok(jochem.render("Workshop0182 | Jochem", getImage()));
   }
   
   public static Result addTask() {
@@ -60,13 +55,10 @@ public class Application extends Controller {
       return ok(toJson(tasks));
   }
 
-  public static Html getImage(){
-      List<Image> imgs = Image.find.all();
-      Image img = imgs.get(1);
+    public static Image getImage(){
+        Image image = Image.find.byId(1L);
 
-      System.out.println(img);
-
-      return new Html("Image name:"+img.name+"<br/><img src=\""+ img.name +"\">");
-  }
+        return image;
+    }
   
 }

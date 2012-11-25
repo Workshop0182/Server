@@ -9,35 +9,33 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class CreationSet extends Model {
-    @Id
+public class CreationSet extends Model {@Id
     public Long id;
 
     @Constraints.Required
     public String name;
-    
+
     @Constraints.Required
     public String desc;
-    
-    public List<Creation> creations = new ArrayList<Creation>();
-    
-    public void addCreations(int priority, Creation creation){
-    	creations.add(priority, creation);
-    }
-    
-    
-    public String toString(){
-		String retString = id+" | "+name+" | "+desc;
-		return retString;
-	}
 
-    public Long getId() {
-        return id;
-    }
+    @Constraints.Required
+    public int priority;
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<Creation> children = new ArrayList<Creation>();
+    
+    public void addCreation(Creation creation){
+        creation.parent = this;
+    	children.add(creation.priority, creation);
     }
 
     public static Finder find = new Finder(Long.class, CreationSet.class);
+
+    public CreationSet(){
+        int x= 0;
+
+        while( x < 100 ){
+            children.add(new Creation());
+            x++;
+        }
+    }
 }

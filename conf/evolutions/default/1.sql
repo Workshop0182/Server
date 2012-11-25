@@ -7,6 +7,7 @@ create table creation (
   id                        bigint not null,
   name                      varchar(255),
   desc                      varchar(255),
+  priority                  integer,
   constraint pk_creation primary key (id))
 ;
 
@@ -14,12 +15,16 @@ create table creation_set (
   id                        bigint not null,
   name                      varchar(255),
   desc                      varchar(255),
+  priority                  integer,
   constraint pk_creation_set primary key (id))
 ;
 
 create table image (
   id                        bigint not null,
+  img                       varchar(255),
+  priority                  integer,
   name                      varchar(255),
+  aspect_ratio              double,
   constraint pk_image primary key (id))
 ;
 

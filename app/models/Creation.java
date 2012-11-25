@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import play.db.ebean.Model;
@@ -15,23 +16,32 @@ public class Creation extends Model {
 
     @Constraints.Required
     public String name;
-    
+
     @Constraints.Required
     public String desc;
-    
-    public List<Image> images = new ArrayList<Image>();
-    
-    public void addImage(int priority, Image img){
-    	images.add(priority, img);
-    }
 
-    public Long getId() {
-        return id;
-    }
+    @Constraints.Required
+    public int priority;
 
-    public void setId(Long id) {
-        this.id = id;
+    @Constraints.Required
+    public CreationSet parent;
+
+    public List<Image> children = new ArrayList<Image>();
+    
+    public void addImage(Image img){
+        img.parent = this;
+        children.add(img);
+        Collections.sort(children);
     }
 
     public static Finder find = new Finder(Long.class, Creation.class);
+
+    public Creation(){
+        int x= 0;
+
+        while( x < 100 ){
+            children.add(new Image());
+            x++;
+        }
+    }
 }

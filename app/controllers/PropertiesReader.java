@@ -8,39 +8,35 @@ import java.util.HashMap;
  
 public class PropertiesReader {
 	
-	private HashMap<String,String> properties = new HashMap<String,String>();
- 
-	public PropertiesReader(String filePath) {
-		
-		BufferedReader br = null;
-		
-		try {
-			String sCurrentLine;
-			
-			br = new BufferedReader(new FileReader(filePath));
- 
-			while ((sCurrentLine = br.readLine()) != null) {
-				
-				String propertyName = sCurrentLine.substring(sCurrentLine.indexOf("[")+1,sCurrentLine.lastIndexOf("]"));
-				String propertyValue = sCurrentLine.substring(sCurrentLine.indexOf(":")+2);
-				
-				properties.put(propertyName,propertyValue);
-			}
- 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (StringIndexOutOfBoundsException s) {
-			//Do absolutely nothing with this error, deal with it, I'm to lazy to prevent it >:D
-		} finally {
-			try {
-				if (br != null)br.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-	}
-	
-	public String getValue(String propertyName){
+	public static String getValue(String filePath,String propertyName){
+        BufferedReader br = null;
+        HashMap<String,String> properties = new HashMap<String,String>();
+
+        try {
+            String sCurrentLine;
+
+            br = new BufferedReader(new FileReader(filePath));
+
+            while ((sCurrentLine = br.readLine()) != null) {
+
+                String pName = sCurrentLine.substring(sCurrentLine.indexOf("[")+1,sCurrentLine.lastIndexOf("]"));
+                String pValue = sCurrentLine.substring(sCurrentLine.indexOf(":")+2);
+
+                properties.put(pName,pValue);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (StringIndexOutOfBoundsException s) {
+            //Do absolutely nothing with this error, deal with it, I'm to lazy to prevent it >:D
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
 		return (String) properties.get(propertyName);
 	}
 	
