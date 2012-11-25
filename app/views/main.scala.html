@@ -64,7 +64,9 @@
 			}
 		}
 		
-		resizeWallpaper($(window).width(),$(window).height());
+		wallpaper.on('load', function() {
+			resizeWallpaper($(window).width(),$(window).height());
+		});
 		blah = true;
 		
 		
