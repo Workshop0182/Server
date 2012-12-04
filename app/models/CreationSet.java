@@ -3,13 +3,18 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.JsonNode;
 import play.db.ebean.Model;
 import play.data.validation.Constraints;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import static play.libs.Json.toJson;
+
 @Entity
-public class CreationSet extends Model {@Id
+public class CreationSet extends Model {
+
+    @Id
     public Long id;
 
     @Constraints.Required
@@ -28,6 +33,8 @@ public class CreationSet extends Model {@Id
     	children.add(creation.priority, creation);
     }
 
+    private JsonNode JsonChildren = toJson(children);
+
     public static Finder find = new Finder(Long.class, CreationSet.class);
 
     public CreationSet(){
@@ -37,5 +44,9 @@ public class CreationSet extends Model {@Id
             children.add(new Creation());
             x++;
         }
+    }
+
+    public JsonNode getJsonChildren(){
+        return JsonChildren;
     }
 }

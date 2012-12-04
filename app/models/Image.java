@@ -43,10 +43,10 @@ public class Image extends Model implements Comparable<Image>{
         BufferedImage i;
         try {
             i = ImageIO.read(image);
-
             this.aspectRatio = (double) i.getHeight()/i.getWidth();
             Logger.info(this.aspectRatio+"");
         } catch (IOException e) {
+            Logger.info("["+this.name+"] Aspect ratio measure error");
             this.aspectRatio = 0.75;
         }
 	}

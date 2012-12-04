@@ -49,11 +49,11 @@ public class Application extends Controller {
     	  return redirect(routes.Application.index());
       }
   }
-  
-  public static Result getTasks() {
-      List<Task> tasks = new Model.Finder(String.class, Task.class).all();
-      return ok(toJson(tasks));
-  }
+
+    public static Result getTasks() {
+        List<Task> tasks = new Model.Finder(String.class, Task.class).all();
+        return ok(toJson(tasks));
+    }
 
     public static Image getImage(){
         Image image = Image.find.byId(1L);

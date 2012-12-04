@@ -6,11 +6,15 @@ import java.util.List;
 
 import play.db.ebean.Model;
 import play.data.validation.Constraints;
+import play.mvc.Result;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import static play.libs.Json.toJson;
+import org.codehaus.jackson.JsonNode;
+
 @Entity
-public class Creation extends Model {
+public class Creation extends Model implements Comparable<Creation> {
     @Id
     public Long id;
 
@@ -26,8 +30,10 @@ public class Creation extends Model {
     @Constraints.Required
     public CreationSet parent;
 
-    public List<Image> children = new ArrayList<Image>();
-    
+    private List<Image> children = new ArrayList<Image>();
+
+    private JsonNode JsonChildren = toJson(children);
+
     public void addImage(Image img){
         img.parent = this;
         children.add(img);
@@ -43,5 +49,21 @@ public class Creation extends Model {
             children.add(new Image());
             x++;
         }
+    }
+
+    public JsonNode getJsonChildren(){
+        return JsonChildren;
+    }
+
+    @Override
+    public int compareTo(Creation creation) {
+        int ret;
+        try{
+            ret = this.name.compareTo(creation.name);
+        }catch(NullPointerException ex){
+            ret = 255;
+        }
+
+        return ret;
     }
 }
