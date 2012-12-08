@@ -1,0 +1,21 @@
+@(title: String = "Workshop0182")(subsiteStyle: Html)(content: Html)(initBg: Image)
+@implicitFieldConstructor = @{ helper.FieldConstructor(twitterBootstrapInput.render) }
+
+@main(title)(subsiteStyle){
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+            	<ul class="nav">  
+                	<li><a class="brand" href="/">  </a></li>
+                	<li><a class="sieraden" href="/sieraden"> </a></li> 
+                	<li><a class="leer" href="/leerbewerking"> </a></li> 
+                	<li><a class="jochem" href="/jochem"> </a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+	@content
+    
+}(initBg)
