@@ -33,8 +33,6 @@ public class CreationSet extends Model {
     	children.add(creation.priority, creation);
     }
 
-    private JsonNode JsonChildren = toJson(children);
-
     public static Finder find = new Finder(Long.class, CreationSet.class);
 
     public CreationSet(){
@@ -47,6 +45,6 @@ public class CreationSet extends Model {
     }
 
     public JsonNode getJsonChildren(){
-        return JsonChildren;
+        return toJson(children);
     }
 }

@@ -32,8 +32,6 @@ public class Creation extends Model implements Comparable<Creation> {
 
     private List<Image> children = new ArrayList<Image>();
 
-    private JsonNode JsonChildren = toJson(children);
-
     public void addImage(Image img){
         img.parent = this;
         children.add(img);
@@ -51,8 +49,8 @@ public class Creation extends Model implements Comparable<Creation> {
         }
     }
 
-    public JsonNode getJsonChildren(){
-        return JsonChildren;
+    public JsonNode getJsChildren(){
+        return toJson(children);
     }
 
     @Override

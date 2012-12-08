@@ -14,9 +14,6 @@ import java.util.List;
 import static play.libs.Json.toJson;
 
 public class Application extends Controller {
-
-	
-  List<Image> allImages = new ArrayList<Image>();
   
 
   public static Result index() {

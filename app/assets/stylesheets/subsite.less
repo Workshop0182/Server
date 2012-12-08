@@ -1,41 +1,77 @@
-
+/*Temp background*/
 body{
-	background: rgba(30,30,30,0.5);
-	background-image: url('/assets/images/wood.jpg');
-	background-repeat: repeat;
-	height: 100%;
-	width: 100%;
+	background: 			rgba(30,30,30,0.5);
+	background-image: 	url('/assets/images/wood.jpg');
+	background-repeat: 	repeat;
+	height: 				100%;
+	width: 					100%;
 }
 
 
+@corner: 7px;
 
-.itemList{
-   width: 100px;
-   height: 100px;
-   margin: 10px;
-   padding: 0;
-   border: 1px solid rgba(0,0,0,0.5);
-   border-radius: 10px 10px 2px 2px;
-   background: rgba(0,0,0,0.25);
-   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+.nano { 
+	background: 	#bba; 
+	z-index:		1;
+	opacity:		0.5;
+	
+	.content { padding: 20px; }
+	.pane   { background: #888; }
+	.slider { background: #111; padding: 5px;}
+}
+	
+#itemMenu{
+	width: 		160px; 
+	height: 	240px; 
+	
+	position:	fixed;
+	top:		40%;
+	right:		0;
+	
+	-webkit-border-top-left-radius: @corner;
+	-webkit-border-bottom-left-radius: @corner;
+	-moz-border-radius-topleft: @corner;
+	-moz-border-radius-bottomleft: @corner;
+	border-top-left-radius: @corner;
+	border-bottom-left-radius: @corner;
 }
 
-.imageSelBox{
-    .image{
-
-    }
-
+.item {
+	width:				40%;
+	height:			40%;
+	border:			2px solid black;
+	border-radius: 	2px;
+	background: 		background: #888;
 }
 
-.itemDescription{
-    .description{
+#imageMenu{
+	width: 		160px; 
+	height: 	160px;
+	
+	position:	fixed;
+	top:		60px;
+	right:		0;
+	
+	-webkit-border-top-left-radius: @corner;
+	-webkit-border-bottom-left-radius: @corner;
+	-moz-border-radius-topleft: @corner;
+	-moz-border-radius-bottomleft: @corner;
+	border-top-left-radius: @corner;
+	border-bottom-left-radius: @corner;
+}
 
-    }
-
-    .price{
-
-    }
+#itemDesc{
+	width: 		600px; 
+	height: 	175px; 
+	
+	position:	fixed;
+	bottom:	0;
+	left:		5%;
+	
+	-webkit-border-top-left-radius: @corner;
+	-webkit-border-top-right-radius: @corner;
+	-moz-border-radius-topleft: @corner;
+	-moz-border-radius-topright: @corner;
+	border-top-left-radius: @corner;
+	border-top-right-radius: @corner;
 }

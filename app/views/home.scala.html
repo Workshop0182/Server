@@ -1,7 +1,9 @@
-@(title: String = "Workshop0182")(initBg: Image)(content: Html)
+@(title: String = "Workshop0182")(initBg: Image)
 
-@subsite(title)(initBg){
-
+@subsite(title){
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/subsite.css")">
+}{
 	
+	Homepage
     
-}(content)
+}(initBg)
